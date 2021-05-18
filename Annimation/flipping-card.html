@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flipping-Card</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/64ef93f1f6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 400px;
+        transform-style: preserve-3d;
+        perspective: 600px;
+        transition: 0.5s;
+      }
+      .card .front-veiw {
+        position: absolute;
+        top: 0;
+        left: 50;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        backface-visibility: hidden;
+        transform: rotateX(0deg);
+        transition: 0.5s;
+      }
+      .card:hover .front-veiw {
+        transform: rotateX(-180deg);
+      }
+      .card .front-veiw .profile-pic {
+        width: 300px;
+        height: 400px;
+      }
+      .card .back-veiw {
+        position: absolute;
+        top: 0;
+        left: 50;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        backface-visibility: hidden;
+        transform: rotateX(100deg);
+        transition: 0.5s;
+      }
+      .card .back-veiw::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.1);
+      }
+      .card:hover .back-veiw {
+        transform: rotateX(0deg);
+      }
+      .card .back-veiw .details {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .card .back-veiw .details h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        color: #fff;
+      }
+      .card .back-veiw .details h2 span {
+        color: #9c9b9b;
+        font-size: 16px;
+      }
+      .icons {
+        padding: 10px 0;
+      }
+      .icons a {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        text-align: center;
+        background: #2e2d2d;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50%;
+      }
+      a {
+        line-height: 36px;
+      }
+      a:hover {
+        background: rgb(238, 98, 98);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="front-veiw">
+        <img class="profile-pic" src="ani-images/komal.jpg" alt="profile-pic" />
+      </div>
+      <div class="back-veiw">
+        <div class="details">
+          <h2>Komal Solanki <br /><span>Aspiring Web-Developer</span></h2>
+          <div class="icons">
+            <a href="#"><i class="fab fa-instagram"></i> </a>
+            <a href="#"><i class="fab fa-facebook-f"></i> </a>
+            <a href="#"><i class="fab fa-twitter"></i> </a>
+            <a href="#"><i class="fab fa-google-plus-g"></i> </a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
